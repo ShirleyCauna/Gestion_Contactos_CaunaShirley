@@ -84,8 +84,21 @@ void mostrarContactosOrdenadosPorDominio(ContactoEmail contactos[], int numConta
         return;
     }
 
-    // AVANCE: aún no se ordena
-    cout << "Funcionalidad en desarrollo: orden por servidor de correo.\n";
+    for (int i = 0; i < numContactos - 1; i++) {
+        for (int j = i + 1; j < numContactos; j++) {
+            char *dominioA = strchr(contactos[i].email, '@');
+            char *dominioB = strchr(contactos[j].email, '@');
+
+            if (dominioA && dominioB) {
+                if (strcmp(dominioA, dominioB) > 0) {
+                    ContactoEmail temp = contactos[i];
+                    contactos[i] = contactos[j];
+                    contactos[j] = temp;
+                }
+            }
+        }
+    }
+
     mostrarContactos(contactos, numContactos);
 }
 

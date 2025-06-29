@@ -114,6 +114,7 @@ int main() {
         cout << "2. Eliminar un contacto"<<endl;
         cout << "3. Mostrar listado general de contactos"<<endl;
          cout << "4. Mostrar listado de contactos ordenado por servidor de correo"<<endl;
+         cout << "5. Salir"<<endl;
         cout << "Ingrese una opcion: "<<endl;
         cin >> opcion;
 
@@ -124,11 +125,14 @@ int main() {
             case 2:
                 eliminarContacto(contactos, numContactos);
 				break;  
-				case 3:
+			case 3:
                 mostrarContactos(contactos, numContactos);
                 break;	
-				case 4:
+			case 4:
                 mostrarContactosOrdenadosPorDominio(contactos, numContactos);
+                break;
+				 default:
+                cout << "Opcion no valida. Intente de nuevo.\n";
                 break;   
 				 }
     } while(opcion != 5);

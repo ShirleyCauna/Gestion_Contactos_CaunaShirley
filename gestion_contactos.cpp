@@ -78,6 +78,17 @@ void mostrarContactos(const ContactoEmail contactos[], int numContactos) {
         
     }
 }
+void mostrarContactosOrdenadosPorDominio(ContactoEmail contactos[], int numContactos) {
+    if (numContactos == 0) {
+        cout << "No hay contactos para mostrar.\n";
+        return;
+    }
+
+    // AVANCE: aún no se ordena
+    cout << "Funcionalidad en desarrollo: orden por servidor de correo.\n";
+    mostrarContactos(contactos, numContactos);
+}
+
 
 int main() {
     ContactoEmail contactos[100]; 
@@ -89,6 +100,7 @@ int main() {
         cout << "1. Agregar un contacto"<<endl;
         cout << "2. Eliminar un contacto"<<endl;
         cout << "3. Mostrar listado general de contactos"<<endl;
+         cout << "4. Mostrar listado de contactos ordenado por servidor de correo"<<endl;
         cout << "Ingrese una opcion: "<<endl;
         cin >> opcion;
 
@@ -101,7 +113,10 @@ int main() {
 				break;  
 				case 3:
                 mostrarContactos(contactos, numContactos);
-                break;	 
+                break;	
+				case 4:
+                mostrarContactosOrdenadosPorDominio(contactos, numContactos);
+                break;   
 				 }
     } while(opcion != 5);
 
